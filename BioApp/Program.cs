@@ -7,10 +7,10 @@ internal class Program
     {
         bool programOn = true;
         string input;
-        int[] menuOptionArray = new int[] {0, 1, 2};
+        //int[] menuOptionArray = new int[] {0, 1, 2};
         do
         {
-            Console.WriteLine("Välkommen till programments huvudmeny. Skriv siffran för handlingen du vill utföra, tryck sedan enter:\n 1. Köp enkelbiljett\n 2. Köp gruppbiljett \n 0. Avsluta");
+            Console.WriteLine("Välkommen till programments huvudmeny. Skriv siffran för handlingen du vill utföra, tryck sedan enter:\n 1. Se pris för enkelbiljett\n 2. Se pris för gruppbiljett\n 3. Text-repeterare\n 4. Hitta tredje ordet \n 0. Avsluta");
             input = Console.ReadLine();
             switch (input)
             {
@@ -41,17 +41,25 @@ internal class Program
                     break;
                 case "2":
                     CinemaMethods.GroupPriceCalculator(); break;
+                case "3":
+                    InputMethods.InputRepeater();
+                    break;
+                case "4":
+                    InputMethods.ThirdWordFinder();
+                    break;
                 default:
                     Console.WriteLine("Felaktig inmatning. Vänligen skriv endast siffran för det alternativ du vill välja, tryck sedan enter.");
                     break;
             }
         }
         while (programOn);
+        
 
 
     }
   
-
+    
+    
    
 
     
