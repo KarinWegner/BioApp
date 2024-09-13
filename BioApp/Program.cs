@@ -24,11 +24,27 @@ internal class Program
 
                     if (age < 20)
                     {
-                        Console.WriteLine($"Ungdomspris: 80kr");
+                        if (age <5)
+                        {
+                            Console.WriteLine("Barn under 5 går gratis!");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Ungdomspris: 80kr");
+                        }
                     }
                     else if (age > 64)
                     {
+                        if (age <101)
+                        {
+
                         Console.WriteLine($"Pensionärpris: 90kr");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Pensionärer över 100 går gratis!");
+                        }
+
                     }
                     else
                     {

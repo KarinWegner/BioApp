@@ -13,12 +13,17 @@ namespace BioApp
         {
             int price = 0;
             if (age < 20)
-            {
-                price = 80;
+            {   if (age < 5)
+                    price = 0;
+                else
+                    price = 80;
             }
             else if (age > 64)
-            {
-                price = 90;
+            { 
+                if (age > 100)
+                    price = 0;
+                else
+                    price = 90;
             }
             else
             {
@@ -80,10 +85,14 @@ namespace BioApp
             int youthTickets = 0;
             int seniorTickets = 0;
             int standardTickets = 0;
+            int freeEntrys = 0;
             foreach (int price in priceList)
             {
                 switch (price)
                 {
+                    case 0:
+                        freeEntrys++;
+                        break;
                     case 80:
                         youthTickets++;
                         break;
@@ -96,13 +105,18 @@ namespace BioApp
                 }
             }
             Console.WriteLine("Sammanfattning:");
-            Console.WriteLine($"Biljetter: \t {guestCount}\n");
+            Console.WriteLine($"Biljetter: \t\t{guestCount}st\n");
             if (youthTickets > 0)
                 Console.WriteLine($"Ungdom\t|\t80kr \t{youthTickets}st\t|{80 * youthTickets}kr ");
             if (seniorTickets > 0)
                 Console.WriteLine($"Senior\t|\t90kr \t{seniorTickets}st\t|{90 * seniorTickets}kr ");
             if (standardTickets > 0)
                 Console.WriteLine($"Standard|\t120kr \t{standardTickets}st\t|{120 * standardTickets}kr ");
+            if (freeEntrys > 0)
+            {
+                Console.WriteLine($"Gratis*\t|\t0kr \t{freeEntrys}st\t|0kr");
+                Console.WriteLine("\n*småbarn under 5 och seniorer\n över 100 får gratis inträde!");
+            }
             Console.WriteLine("---------------------------------------");
             Console.WriteLine($"\t\tTotal kostnad:\t|{priceList.Sum()}kr");
             Console.WriteLine("\nTryck på enter för att återvända till startmenyn.");
